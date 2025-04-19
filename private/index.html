@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Profile</title>
+        <!-- Linking Google Fonts + style.css -->
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="miroli.css">
+    </head>
+    <body>
+        
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="profile-avatar">
+                <img id="profileAvatar" src="https://via.placeholder.com/120?text=No+Photo" alt="Avatar">
+            </div>
+            <div class="profile-details">
+                <h1 class="profile-name" id="profileName">Name</h1>
+                <p class="profile-desc" id="profileBio">Bio</p>
+                <!-- Stats block -->
+                <div class="profile-stats">
+                    <div><strong id="postsCount">0</strong> posts</div>
+                    <div><strong id="albumsCount">0</strong> albums</div>
+                    <div><strong id="inspirersCount">0</strong> inspirers</div>
+                </div>
+                <!-- Profile link + copy button -->
+                <div class="profile-link">
+                    <a id="profileLink" href="#" target="_blank" class="profile-href"></a>
+                    <button class="copy-profile-link" id="copyProfileBtn">Copy</button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- ===== NAV ===== -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item active" data-target="postsSection">Posts</li>
+                <li class="nav-item" data-target="albumsSection">Albums</li>
+                <li class="nav-item" data-target="inspirersSection">Inspirations</li>
+            </ul>
+        </nav>
+        
+        <!-- ===== MAIN ===== -->
+        <main>
+            <!-- MY POSTS section -->
+            <section id="postsSection" class="posts"></section>
+            
+            <!-- INSPIRERS section -->
+            <section id="inspirersSection" class="hidden">
+                <h2>Inspirers</h2>
+                <div id="inspirersContainer" class="inspirers-limited"></div>
+                
+                <h3 style="margin-top:2rem;">Inspirations</h3>
+                <div id="inspirationsContainer" class="friend-posts"></div>
+            </section>
+            
+            <!-- ALBUMS section -->
+            <section id="albumsSection" class="hidden">
+                <h2>Albums</h2>
+                <div id="albumsContainer" class="albums"></div>
+            </section>
+        </main>
+        
+        <!-- ===== FOOTER ===== -->
+        <footer class="site-footer" id="dynamicFooter">
+            © 2025 Profile. All rights reserved.
+        </footer>
+        
+        <!-- ===== UNIVERSAL MODAL FOR PHOTOS ===== -->
+        <div id="universalBackdrop" class="universal-backdrop">
+            <div id="universalWindow" class="universal-window">
+                <button id="universalClose" class="universal-close">×</button>
+                <button id="universalPrev" class="universal-prev">‹</button>
+                <button id="universalNext" class="universal-next">›</button>
+                <img id="universalImg" class="universal-img" src="" alt="photo">
+                    <div id="exifBlock" class="exif-block"></div>
+            </div>
+        </div>
+        
+        <!-- ===== ALBUM GRID MODAL ===== -->
+        <div id="albumGridModal" class="modal-backdrop">
+            <div class="modal-window">
+                <button id="albumGridClose" class="close-modal-btn">×</button>
+                <h3 id="albumGridTitle"></h3>
+                <div id="albumGridContainer" class="album-grid"></div>
+            </div>
+        </div>
+        
+        <script src="miroli.js"></script>
+    </body>
+</html>

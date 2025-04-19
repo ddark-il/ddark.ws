@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         await renderInspirers(data);
         
         // === Добавляем замену title страницы ===
-        document.title = (data.name || 'NoName') + ' - miroli';
+        document.title = (data.name || 'NoName') + ' - Miroli';
         
         // === DYNAMIC FOOTER ===
         // For example: "© 2025 [Name]. All rights reserved. Powered by miroli.app"
         const footerEl = document.getElementById('dynamicFooter');
         if (footerEl && data.name) {
-            footerEl.innerHTML = `&copy; 2025 ${data.name}. All rights reserved. Powered by <a href="https://miroli.app" target="_blank">miroli.app</a>`;
+            footerEl.innerHTML = `&copy; 2025 ${data.name}. All rights reserved. Powered by <a href="https://miroli.app" target="_blank">Miroli</a>`;
         }
         
     } catch(err) {

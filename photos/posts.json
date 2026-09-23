@@ -1,6 +1,92 @@
 [
   {
     "category" : "israel",
+    "date" : "2026-09-18",
+    "id" : "Jerusalem Zoo__2026-09-18",
+    "photos" : [
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "001.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/3.2",
+        "h" : 2000,
+        "iso" : 100,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/160s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 13:12:47",
+        "w" : 1333
+      },
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "002.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/3.5",
+        "h" : 2000,
+        "iso" : 100,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/250s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 14:11:53",
+        "w" : 1334
+      },
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "003.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/2.0",
+        "h" : 1334,
+        "iso" : 100,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/100s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 15:17:36",
+        "w" : 2000
+      },
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "004.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/1.4",
+        "h" : 1333,
+        "iso" : 125,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/100s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 15:02:56",
+        "w" : 2000
+      },
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "005.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/2.8",
+        "h" : 2000,
+        "iso" : 100,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/100s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 14:48:01",
+        "w" : 1333
+      },
+      {
+        "camera" : "LEICA CAMERA AG LEICA CL",
+        "file" : "006.jpg",
+        "focal" : "35mm",
+        "fstop" : "f\/2.8",
+        "h" : 2000,
+        "iso" : 100,
+        "lens" : "SUMMILUX-TL 1:1.4\/35 ASPH.",
+        "shutter" : "1\/125s",
+        "src" : "Jerusalem Zoo",
+        "taken" : "2026:09:18 14:36:39",
+        "w" : 1333
+      }
+    ],
+    "title" : "Jerusalem Zoo"
+  },
+  {
+    "category" : "israel",
     "date" : "2026-07-02",
     "id" : "israel__2026-07-02",
     "photos" : [

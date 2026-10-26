@@ -219,10 +219,11 @@ html, body {
 
 .post.solo .post-wall .pw-item img { max-height: 560px; }
 
-/* ===== CODE ===== */
+/* ===== CODE / MODELS ===== */
+/* Cards shared by Code Projects and AI Models. */
 .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 1px;
     background: transparent;
 }
@@ -234,13 +235,13 @@ html, body {
     transition: background 0.2s, border-color 0.2s;
 }
 .repo:hover { background: var(--panel); border-color: var(--dim); }
-.repo .name { font-size: 1.1rem; font-weight: 500; }
+.repo .name { font-size: 1.1rem; font-weight: 500; overflow-wrap: anywhere; }
 .repo .name:hover { color: var(--amber); }
-.repo .desc { color: var(--dim); font-size: 0.92rem; flex: 1; }
+.repo .desc { color: var(--dim); font-size: 0.92rem; flex: 1; overflow-wrap: anywhere; }
 .repo .meta {
     font-family: var(--mono); font-size: 0.72rem;
     text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim);
-    display: flex; gap: 1rem;
+    display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
 }
 .repo .links {
     display: flex; gap: 1rem;
@@ -250,6 +251,9 @@ html, body {
 .repo .links a { color: var(--dim); border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
 .repo .links a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 .repo .links a.live { color: var(--amber); }
+
+/* The AI Models heading has no leadout, so it needs its own spacing. */
+.models-grid { margin-top: 2rem; }
 
 .hint { color: var(--dim); font-size: 0.9rem; }
 

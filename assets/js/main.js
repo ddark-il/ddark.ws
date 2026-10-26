@@ -1,7 +1,10 @@
 const GITHUB_USER = 'ddark-il';
+const HF_USER = 'ddark-il';
 const ROW_H = 220;
 const GAP = 4;
 const MAX_PER_POST_THUMBS = 24;
+
+const esc = s => String(s).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 
 let PhotoSwipeLightbox = null;
 
@@ -267,9 +270,58 @@ async function loadRepos() {
     }
 }
 
+// ---------- Models ----------
+
+function formatCount(n) {
+    return new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(n);
+}
+
+async function loadModels() {
+    const root = document.getElementById('models');
+    const profile = `https://huggingface.co/${HF_USER}`;
+    try {
+        const r = await fetch(`https://huggingface.co/api/models?author=${HF_USER}&cardData=true&sort=lastModified&direction=-1&limit=100`);
+        if (!r.ok) throw new Error(r.status);
+        // The author filter is the verification: only repos owned by HF_USER are returned.
+        const models = (await r.json()).filter(m => !m.private && m.id.startsWith(`${HF_USER}/`));
+        if (!models.length) {
+            root.innerHTML = `<p class="hint">No public models yet. <a href="${profile}" target="_blank" rel="noopener">Visit Hugging Face →</a></p>`;
+            return;
+        }
+        root.innerHTML = '';
+        for (const model of models) {
+            const name = model.id.split('/').pop();
+            const base = [].concat(model.cardData?.base_model || []).filter(Boolean)[0];
+            const task = (model.pipeline_tag || '').replace(/-/g, ' ');
+            const url = `https://huggingface.co/${model.id}`;
+            const quantized = (model.tags || []).includes('quantized');
+            const card = document.createElement('div');
+            card.className = 'repo';
+            card.innerHTML = `
+                <a class="name" href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a>
+                <div class="desc">${base ? `${quantized ? 'Quantized from' : 'Based on'} ${esc(base)}` : 'Open-weight model on Hugging Face'}</div>
+                <div class="meta">
+                    ${task ? `<span>${esc(task)}</span>` : ''}
+                    ${model.library_name ? `<span>${esc(model.library_name)}</span>` : ''}
+                    <span>↓ ${formatCount(model.downloads || 0)}</span>
+                    <span>♥ ${formatCount(model.likes || 0)}</span>
+                </div>
+                <div class="links">
+                    <a class="live" href="${esc(url)}" target="_blank" rel="noopener">Model ↗</a>
+                    ${base ? `<a href="https://huggingface.co/${esc(base)}" target="_blank" rel="noopener">Base ↗</a>` : ''}
+                </div>
+            `;
+            root.appendChild(card);
+        }
+    } catch (e) {
+        root.innerHTML = `<p class="hint">Couldn't load models (${esc(e.message)}). <a href="${profile}" target="_blank" rel="noopener">Open Hugging Face →</a></p>`;
+    }
+}
+
 // ---------- Boot ----------
 
 (async () => {
     await renderTimeline();
     loadRepos();
+    loadModels();
 })();
